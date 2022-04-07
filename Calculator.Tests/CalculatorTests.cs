@@ -13,5 +13,14 @@ namespace Calculator.Tests
             string actualPostfixExpresion = Calculator.TranslatePostfixNotation(expresion);
             Assert.AreEqual(expectedPostfixExpresion, actualPostfixExpresion);
         }
+
+        [TestCase("1 1 + ", 2)]
+        [TestCase("10 4 6 + * 2 / ", 50)]
+        [TestCase("43 2 2 2 + / * 2 / ", 10.75)]
+        public void SolveExpressionTest(string postfixExpresion, double expectedResult)
+        {
+            double actualResult = Calculator.SolveExpression(postfixExpresion);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }

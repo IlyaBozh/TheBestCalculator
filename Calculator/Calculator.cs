@@ -69,6 +69,60 @@
             return postfixExpresion;
         }
 
+        public static double SolveExpression(string postfixExpresion)
+        {
+            Stack<double> stack = new Stack<double>();
+
+            for (int i = 0; i < postfixExpresion.Length; i++)
+            {
+                if (IsDelimiter(postfixExpresion[i]))
+                {
+                    continue;
+                }
+                else if (Char.IsDigit(postfixExpresion[i]))
+                {
+                    string tmp = "";
+
+                    while (!IsDelimiter(postfixExpresion[i]))
+                    {
+                        tmp += postfixExpresion[i];
+                        i++;
+                    }
+                    stack.Push(Convert.ToDouble(tmp));
+
+                }
+                else
+                {
+                    double resultOperation = 0;
+                    double numberOne = stack.Pop();
+                    double numberTwo = stack.Pop();
+
+                    switch (postfixExpresion[i])
+                    {
+                        case '*':
+                            resultOperation = numberTwo * numberOne;
+                            break;
+                        case '/':
+                            resultOperation = numberTwo / numberOne;
+                            break;
+                        case '+':
+                            resultOperation = numberTwo + numberOne;
+                            break;
+                        case '-':
+                            resultOperation = numberTwo - numberOne;
+                            break;
+
+                    }
+                    stack.Push(resultOperation);
+
+                }
+
+
+            }
+
+            return stack.Pop();
+        }
+
         private static bool IsDelimiter(char simbol)
         {
             bool isDelimiter = false;
