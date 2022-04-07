@@ -24,5 +24,10 @@ namespace Calculator.WPF
         {
             InitializeComponent();
         }
+
+        private void ButtonOne_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxDisplay.Text += "1 ";
+        }
     }
 }

@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="TextBoxDisplay" HorizontalAlignment="Left" Margin="322,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="ButtonOne" Content="1" HorizontalAlignment="Left" Margin="344,151,0,0" VerticalAlignment="Top" Width="56" Height="66" FontSize="16" Click="ButtonOne_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="524,184,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="103,151,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
