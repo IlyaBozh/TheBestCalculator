@@ -20,7 +20,7 @@
         <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Margin="83,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_2_Click"/>
         <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Margin="83,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_5_Click"/>
         <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Margin="151,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_3_Click"/>
-        <Button x:Name="Button_point" Content="." HorizontalAlignment="Left" Margin="151,368,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_point_Click"/>
+        <Button x:Name="Button_point" Content="," HorizontalAlignment="Left" Margin="151,368,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_point_Click"/>
         <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Margin="12,185,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_7_Click"/>
         <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Margin="151,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_6_Click"/>
         <Button x:Name="Button_Delit" Content="/" HorizontalAlignment="Left" Margin="218,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_Delit_Click"/>

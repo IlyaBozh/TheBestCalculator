@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    public class Calculator
+    public class CalculatorController
     {
         public string TranslatePostfixNotation(string expression)
         {
@@ -12,13 +12,19 @@
 
                 if (Char.IsDigit(expression[i]))
                 {
-                    while (!IsDelimiter(expression[i]) && expression[i] != ')')
+                    while (!IsOperator(expression[i]) && expression[i] != ')')
                     {
                         postfixExpresion += expression[i];
                         i++;
+
+                        if(i == expression.Length)
+                        {
+                            break;
+                        }
                     }
 
-                    postfixExpresion += " ";  
+                    postfixExpresion += " ";
+                    i--;
                 }
                 
                 if (!Char.IsDigit(expression[i]))
@@ -118,6 +124,38 @@
             }
 
             return stack.Pop();
+        }
+
+        private bool IsOperator(char simbol)
+        {
+            bool result;
+
+            switch (simbol)
+            {
+                case '*':
+                    result = true;
+                    break;
+                case '+':
+                    result = true;
+                    break;
+                case '-':
+                    result = true;
+                    break;
+                case '/':
+                    result = true;
+                    break;
+                case '(':
+                    result = true;
+                    break;
+                case ')':
+                    result = true;
+                    break;
+                default:
+                    result = false;
+                    break;
+            }
+
+            return result;
         }
 
         private bool IsDelimiter(char simbol)

@@ -7,10 +7,12 @@ namespace Calculator.Tests
     {
         [TestCase("10*(4+6)/2", "10 4 6 + * 2 / ")]
         [TestCase("2+1", "2 1 + ")]
+        [TestCase("2*(1+1)", "2 1 1 + * ")]
         [TestCase("43*(2/(4+9))/2", "43 2 4 9 + / * 2 / ")]
+        [TestCase("2*(1.44-2)/2", "2 1.44 2 - * 2 / ")]
         public void TranslatePostfixNotationTest(string expresion, string expectedPostfixExpresion)
         {
-            Calculator calculator = new Calculator();
+            CalculatorController calculator = new CalculatorController();
             string actualPostfixExpresion = calculator.TranslatePostfixNotation(expresion);
             Assert.AreEqual(expectedPostfixExpresion, actualPostfixExpresion);
         }
@@ -20,7 +22,7 @@ namespace Calculator.Tests
         [TestCase("43 2 2 2 + / * 2 / ", 10.75)]
         public void SolveExpressionTest(string postfixExpresion, double expectedResult)
         {
-            Calculator calculator = new Calculator();
+            CalculatorController calculator = new CalculatorController();
             double actualResult = calculator.SolveExpression(postfixExpresion);
             Assert.AreEqual(expectedResult, actualResult);
         }

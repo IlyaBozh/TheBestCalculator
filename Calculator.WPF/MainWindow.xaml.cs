@@ -20,7 +20,7 @@ namespace Calculator.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Calculator _calculator = new Calculator();
+        private CalculatorController cal = new CalculatorController();
         public MainWindow()
         {
             InitializeComponent();
@@ -78,7 +78,7 @@ namespace Calculator.WPF
 
         private void Button_point_Click(object sender, RoutedEventArgs e)
         {
-            Textbox_expression.Text += ".";
+            Textbox_expression.Text += ",";
         }
 
         private void Button_Plus_Click(object sender, RoutedEventArgs e)
@@ -93,9 +93,10 @@ namespace Calculator.WPF
 
         private void Button_Equale_Click(object sender, RoutedEventArgs e)
         {
-            //string postfixExpresion = Calculator.TranslatePostfixNotation(Textbox_expression.Text);
-            //double result = Calculator.SolveExpression(postfixExpresion);
-           //Textbox_answer.Text = Convert.ToString(result);
+            string tmp = Textbox_expression.Text;
+            string postfixExpresion = cal.TranslatePostfixNotation(tmp);
+            double result = cal.SolveExpression(postfixExpresion);
+            Textbox_answer.Text = Convert.ToString(result);
         }
 
         private void Button_Delit_Click(object sender, RoutedEventArgs e)
