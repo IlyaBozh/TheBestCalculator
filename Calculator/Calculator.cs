@@ -1,10 +1,10 @@
 ﻿namespace Calculator
 {
-    public class Calculator
+    public static class Calculator
     {
-        public string TranslatePostfixNotation(string expression)
+        public static string TranslatePostfixNotation(string expression)
         {
-            string result = "";
+            string postfixExpresion = "";
             Stack<char> stack = new Stack<char>();
 
             for (int i = 0; i < expression.Length; i++)
@@ -15,24 +15,61 @@
                 }
                 else if (Char.IsDigit(expression[i]))
                 {
-                    while (!IsDelimiter(expression[i]))
+                    while (!IsDelimiter(expression[i]) && expression[i] != ')')
                     {
-                        result += expression[i];
+                        postfixExpresion += expression[i];
                         i++;
                     }
 
-                    result += " ";  
+                    postfixExpresion += " ";  
                 }
-                else
+                
+                if (!IsDelimiter(expression[i]) && !Char.IsDigit(expression[i]))
                 {
+                    if (expression[i] == '(')
+                    {
+                        stack.Push(expression[i]);
+                    }
+                    else if (expression[i] == ')')
+                    {
+                        char tmp = stack.Pop();
+
+                        while (tmp != '(')
+                        {
+                            postfixExpresion += tmp + " ";
+                            tmp = stack.Pop();
+                        }
+                    }
+                    else
+                    {
+                        if (stack.Count > 0 && GetPriority(expression[i]) >= GetPriority(stack.Peek()))
+                        {
+                            while (stack.Count != 0 && stack.Peek() != '(' && GetPriority(expression[i]) >= GetPriority(stack.Peek()))
+                            {
+                                postfixExpresion += stack.Pop() + " ";
+                            }
+
+                            stack.Push(expression[i]);
+                           
+                        }
+                        else
+                        {
+                            stack.Push(expression[i]);
+                        }
+                    }
 
                 }
             }
 
-            return result;
+            while(stack.Count > 0)
+            {
+                postfixExpresion += stack.Pop() + " ";
+            }
+
+            return postfixExpresion;
         }
 
-        private bool IsDelimiter(char simbol)
+        private static bool IsDelimiter(char simbol)
         {
             bool isDelimiter = false;
 
@@ -42,6 +79,33 @@
             }
 
             return isDelimiter;
+        }
+
+        private static int GetPriority(char simbol)
+        {
+            int priority = 0;
+
+            switch (simbol)
+            {
+                case '*':
+                    priority = 3;
+                    break;
+                case '/':
+                    priority = 3;
+                    break;
+                case '+':
+                    priority = 2;
+                    break;
+                case '-':
+                    priority = 2;
+                    break;
+                case '(':
+                    priority = 1;
+                    break;
+
+            }
+
+            return priority;
         }
 
     }
