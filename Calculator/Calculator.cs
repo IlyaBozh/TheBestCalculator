@@ -20,6 +20,8 @@
                         result += expression[i];
                         i++;
                     }
+
+                    result += " ";  
                 }
                 else
                 {
@@ -40,18 +42,6 @@
             }
 
             return isDelimiter;
-        }
-
-        private bool IsOperator(char simbol)
-        {
-            bool isOperator = false;
-
-            if ("*/+-()".IndexOf(simbol) != -1)
-            {
-                isOperator = true;
-            }
-
-            return isOperator;
         }
 
     }
