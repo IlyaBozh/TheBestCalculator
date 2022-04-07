@@ -5,12 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="TextBoxDisplay" HorizontalAlignment="Left" Margin="322,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="ButtonOne" Content="1" HorizontalAlignment="Left" Margin="344,151,0,0" VerticalAlignment="Top" Width="56" Height="66" FontSize="16" Click="ButtonOne_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="524,184,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="103,151,0,0" VerticalAlignment="Top"/>
-
+        Title="MainWindow" Height="450" Width="400">
+    <Grid HorizontalAlignment="Left" Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Textbox_answer" HorizontalAlignment="Center" Margin="0,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" Height="38"/>
+        <TextBox x:Name="Textbox_expression" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" Height="45"/>
+        <Button x:Name="Button_umnoj" Content="*" HorizontalAlignment="Left" Margin="218,185,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="Button_umnoj_Click"/>
+        <Button x:Name="Button_1" Content="1" HorizontalAlignment="Left" Margin="12,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_1_Click"/>
+        <Button x:Name="Button_4" Content="4" HorizontalAlignment="Left" Margin="12,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_4_Click"/>
+        <Button x:Name="Button_0" Content="0" HorizontalAlignment="Left" Margin="83,368,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_0_Click"/>
+        <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Margin="83,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_2_Click"/>
+        <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Margin="83,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_5_Click"/>
+        <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Margin="151,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_3_Click"/>
+        <Button x:Name="Button_point" Content="." HorizontalAlignment="Left" Margin="151,368,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_point_Click"/>
+        <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Margin="12,185,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_7_Click"/>
+        <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Margin="151,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_6_Click"/>
+        <Button x:Name="Button_Delit" Content="/" HorizontalAlignment="Left" Margin="218,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_Delit_Click"/>
+        <Button x:Name="Button_minus" Content="-" HorizontalAlignment="Left" Margin="218,305,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_minus_Click"/>
+        <Button x:Name="Button_Equale" Content="=" HorizontalAlignment="Left" Margin="292,368,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_Equale_Click"/>
+        <Button x:Name="Button_9" Content="9" HorizontalAlignment="Left" Margin="151,185,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_9_Click"/>
+        <Button x:Name="Button_8" Content="8" HorizontalAlignment="Left" Margin="83,185,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_8_Click"/>
+        <Button x:Name="Button_Plus" Content="+" HorizontalAlignment="Left" Margin="218,368,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Button_Plus_Click"/>
+        <Button x:Name="Button_BackSpace" Content="&lt;-" HorizontalAlignment="Left" Margin="292,185,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_BackSpace_Click"/>
+        <Button x:Name="Button_left" Content="(" HorizontalAlignment="Left" Margin="292,305,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_left_Click"/>
+        <Button x:Name="Button_right" Content=")" HorizontalAlignment="Left" Margin="292,242,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_right_Click"/>
     </Grid>
 </Window>

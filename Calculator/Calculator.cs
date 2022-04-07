@@ -1,19 +1,16 @@
 ﻿namespace Calculator
 {
-    public static class Calculator
+    public class Calculator
     {
-        public static string TranslatePostfixNotation(string expression)
+        public string TranslatePostfixNotation(string expression)
         {
             string postfixExpresion = "";
             Stack<char> stack = new Stack<char>();
 
             for (int i = 0; i < expression.Length; i++)
             {
-                if (IsDelimiter(expression[i]))
-                {
-                    continue;
-                }
-                else if (Char.IsDigit(expression[i]))
+
+                if (Char.IsDigit(expression[i]))
                 {
                     while (!IsDelimiter(expression[i]) && expression[i] != ')')
                     {
@@ -24,7 +21,7 @@
                     postfixExpresion += " ";  
                 }
                 
-                if (!IsDelimiter(expression[i]) && !Char.IsDigit(expression[i]))
+                if (!Char.IsDigit(expression[i]))
                 {
                     if (expression[i] == '(')
                     {
@@ -69,7 +66,7 @@
             return postfixExpresion;
         }
 
-        public static double SolveExpression(string postfixExpresion)
+        public double SolveExpression(string postfixExpresion)
         {
             Stack<double> stack = new Stack<double>();
 
@@ -123,7 +120,7 @@
             return stack.Pop();
         }
 
-        private static bool IsDelimiter(char simbol)
+        private bool IsDelimiter(char simbol)
         {
             bool isDelimiter = false;
 
@@ -135,7 +132,7 @@
             return isDelimiter;
         }
 
-        private static int GetPriority(char simbol)
+        private int GetPriority(char simbol)
         {
             int priority = 0;
 
